@@ -83,6 +83,9 @@ void h8_mb_init(void);
 #define H8_LED_CONTROL_DOCK_LED2	0x09
 #define H8_LED_CONTROL_ACDC_LED		0x0c
 #define H8_LED_CONTROL_MUTE_LED		0x0e
+#define H8_LED_CONTROL_REDDOT_LED	0x0a // Red Dot On Back
+#define H8_LED_CONTROL_FN_LED		0x06 // FN Led
+
 
 #define H8_USB_ALWAYS_ON		0x0d
 #define H8_USB_ALWAYS_ON_ENABLE		0x01
