@@ -12,6 +12,8 @@ Scope (\_SI)
 			\_SB.PCI0.LPCB.EC.TLED(0x00)
 			/* suspend TLED off */
 			\_SB.PCI0.LPCB.EC.TLED(0x07)
+			/* Red Dot TLED off */
+			\_SB.PCI0.LPCB.EC.TLED(0x0a)
 		}
 
 		If (LEqual (Arg0, 1)) {
@@ -21,6 +23,8 @@ Scope (\_SI)
 			\_SB.PCI0.LPCB.EC.TLED(0x80)
 			/* suspend TLED off */
 			\_SB.PCI0.LPCB.EC.TLED(0x07)
+			/* Red Dot TLED off */
+			\_SB.PCI0.LPCB.EC.TLED(0x0a)
 		}
 
 		If (LEqual (Arg0, 2)) {
@@ -30,6 +34,8 @@ Scope (\_SI)
 			\_SB.PCI0.LPCB.EC.TLED(0x80)
 			/* suspend LED blinking */
 			\_SB.PCI0.LPCB.EC.TLED(0xc7)
+			/* red dot LED blinking */
+			\_SB.PCI0.LPCB.EC.TLED(0xca)
 		}
 
 		If (LEqual (Arg0, 3)) {
@@ -39,6 +45,8 @@ Scope (\_SI)
 			\_SB.PCI0.LPCB.EC.TLED(0xa0)
 			/* suspend TLED on */
 			\_SB.PCI0.LPCB.EC.TLED(0x87)
+			/* red dot TLED pulsing */
+			\_SB.PCI0.LPCB.EC.TLED(0xaa)
 		}
 	}
 }
