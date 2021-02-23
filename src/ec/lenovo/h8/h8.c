@@ -75,18 +75,11 @@ static void h8_sticky_fn(int on)
 
 static void f1_to_f12_as_primary(int on)
 {
-	if (on){
-		ec_set_bit(0x3b, 3);
-		ec_write(H8_LED_CONTROL,
-		 H8_LED_CONTROL_OFF | H8_LED_CONTROL_FN_LED);
-		}
-
-	else {
-		ec_clr_bit(0x3b, 3);
-		ec_write(H8_LED_CONTROL,
-		 H8_LED_CONTROL_ON | H8_LED_CONTROL_FN_LED);
-		}
-
+	if (on)
+		ec_clr_bit(0x09, 3); // T440p/X250 invert FN Lock
+	else 
+		ec_set_bit(0x09, 3); // 0x3b is just FN lock enabled
+		
 }
 
 static void h8_log_ec_version(void)
