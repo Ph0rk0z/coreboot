@@ -30,6 +30,7 @@ entries
 419	2	e	13	usb_always_on
 422	2	e	10	backlight
 424	1	e	1	f1_to_f12_as_primary
+425	1	e	1	fn_lock_swap
 
 # coreboot config options: northbridge
 435	1	e	1	enable_dual_graphics
