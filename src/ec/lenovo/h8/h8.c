@@ -76,11 +76,21 @@ static void h8_sticky_fn(int on)
 static void f1_to_f12_as_primary(int on)
 {
 	if (on)
-		ec_clr_bit(0x09, 3); // T440p/X250 invert FN Lock
+		ec_set_bit(0x3b, 3); // 0x3b is just FN lock enabled
 	else 
-		ec_set_bit(0x09, 3); // 0x3b is just FN lock enabled
+		ec_clr_bit(0x3b, 3); // T440p/X250 clear FN lock
 		
 }
+
+static void fn_lock_swap(int on)
+{
+	if (on)
+		ec_clr_bit(0x09, 3); // T440p/X250 invert FN Lock
+	else 
+		ec_set_bit(0x09, 3); // Regular FN Lock
+		
+}
+
 
 static void h8_log_ec_version(void)
 {
@@ -336,6 +346,12 @@ static void h8_enable(struct device *dev)
 		if (get_option(&val, "f1_to_f12_as_primary") != CB_SUCCESS)
 			val = 1;
 		f1_to_f12_as_primary(val);
+	}
+	
+	if (CONFIG(H8_SWAP_FN_LOCK)) {
+		if (get_option(&val, "fn_lock_swap") != CB_SUCCESS)
+			val = 1;
+		fn_lock_swap(val);
 	}
 
 	if (get_option(&val, "first_battery") != CB_SUCCESS)
