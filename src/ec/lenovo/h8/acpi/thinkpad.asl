@@ -258,7 +258,7 @@ Device (HKEY)
 	{
 		If (HKBL) {
 			/* FIXME: windows and events */
-			Store ( Xor (Arg0, 0x200), \_SB.PCI0.LPCB.EC.KBLT)
+			Store (Arg0, \_SB.PCI0.LPCB.EC.KBLT)
 		}
 	}
 
