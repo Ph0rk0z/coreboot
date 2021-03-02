@@ -20,7 +20,7 @@ Device(EC)
 		Offset (0x0d),
 		                    , 4,
 		                    , 2,
-			        KBLT, 2,        /* Keyboard Light */
+			        KBLS, 2,        /* Keyboard Light */
 		Offset (0x0F),
 				    , 7,
 				TBSW, 1,	/* Tablet mode switch */
@@ -46,7 +46,7 @@ Device(EC)
 				WWEB, 1,
 		Offset (0x3B),
 				    , 1,
-				TPLT, 1,	/* Think Light?? */
+				KBLT, 1,	/* Think Light?? */
 				    , 2,
 				USPW, 1,	/* USB Power enable */
 		Offset (0x48),
