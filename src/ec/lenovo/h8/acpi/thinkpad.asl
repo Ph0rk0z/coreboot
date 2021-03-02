@@ -238,16 +238,16 @@ Device (HKEY)
 	 *  Bit 9: Backlight HW present
 	 *  Bit 0-1: Brightness level
 	 */
-	Method (MLCG, 1)
+	Method (MLCG, 0)
 	{
 		If (HKBL) {
 			Store (0x200, Local0)
-			/* FIXME: Support 2bit brightness control */
-			Or (Local0, \_SB.PCI0.LPCB.EC.KBLT, Local0)
+			/* FIXME: Support windows and events */
+			Store ( Or (Local0, \_SB.PCI0.LPCB.EC.KBLS), Local0)
 			Return (Local0)
 		} Else {
 			Return (0)
-		}
+			}
 	}
 
 	/*
@@ -257,9 +257,12 @@ Device (HKEY)
 	Method (MLCS, 1)
 	{
 		If (HKBL) {
-			/* FIXME: Support 2bit brightness control */
-			Store (And(Arg0, 1), \_SB.PCI0.LPCB.EC.WWEB)
-		}
+			/* FIXME: windows and events */
+			Store (Arg0, \_SB.PCI0.LPCB.EC.KBLS)
+			return (Or (0x200, Arg0) //Return per ACPI.
+		} Else {
+			Return (0)
+			}
 	}
 
 	/*

@@ -17,6 +17,10 @@ Device(EC)
 				HSPA, 1,
 		Offset (0x0C),
 				LEDS, 8,	/* LED state */
+		Offset (0x0d),
+		                    , 4,
+		                    , 2,
+			        KBLS, 2,        /* Keyboard Light */
 		Offset (0x0F),
 				    , 7,
 				TBSW, 1,	/* Tablet mode switch */
@@ -42,7 +46,7 @@ Device(EC)
 				WWEB, 1,
 		Offset (0x3B),
 				    , 1,
-				KBLT, 1,	/* Keyboard Light */
+				KBLT, 1,	/* Think Light?? */
 				    , 2,
 				USPW, 1,	/* USB Power enable */
 		Offset (0x48),
@@ -116,9 +120,9 @@ Device(EC)
 		Store(Arg0, USPW)
 	}
 
-	Method (LGHT, 1, NotSerialized)
+	Method (LGHT, 1, NotSerialized) // method for thinklight?
 	{
-		Store(Arg0, KBLT)
+		Store(Arg0, TPLT)
 	}
 
 
