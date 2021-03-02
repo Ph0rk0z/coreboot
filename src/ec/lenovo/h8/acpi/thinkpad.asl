@@ -238,12 +238,12 @@ Device (HKEY)
 	 *  Bit 9: Backlight HW present
 	 *  Bit 0-1: Brightness level
 	 */
-	Method (MLCG, 1)
+	Method (MLCG, 0)
 	{
 		If (HKBL) {
 			Store (0x200, Local0)
 			/* FIXME: Support windows and events */
-			Store ( Or (Local0, \_SB.PCI0.LPCB.EC.KBLT), Local0)
+			Store ( Or (Local0, \_SB.PCI0.LPCB.EC.KBLS), Local0)
 			Return (Local0)
 		} Else {
 			Return (0)
@@ -258,7 +258,7 @@ Device (HKEY)
 	{
 		If (HKBL) {
 			/* FIXME: windows and events */
-			Store (Arg0, \_SB.PCI0.LPCB.EC.KBLT)
+			Store (Arg0, \_SB.PCI0.LPCB.EC.KBLS)
 		}
 	}
 
