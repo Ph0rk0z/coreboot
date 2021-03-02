@@ -247,7 +247,7 @@ Device (HKEY)
 			Return (Local0)
 		} Else {
 			Return (0)
-		}
+			}
 	}
 
 	/*
@@ -259,7 +259,10 @@ Device (HKEY)
 		If (HKBL) {
 			/* FIXME: windows and events */
 			Store (Arg0, \_SB.PCI0.LPCB.EC.KBLS)
-		}
+			return (Or (0x200, Arg0) //Return per ACPI.
+		} Else {
+			Return (0)
+			}
 	}
 
 	/*
